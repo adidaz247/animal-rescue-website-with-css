@@ -2,14 +2,14 @@
    Twin Cities Animal Rescue
    styles.css  —  mobile-first stylesheet
    ------------------------------------------------------------
-   Palette (4 colours, taken from the logo):
-     #14313C  deep slate      headings, body text, header band
-     #25DAAB  rescue mint     accent rules and highlights (logo colour)
-     #0C7A64  deep teal       links, buttons, focus states
-     #EFF5F2  pale mint grey  page background
+   Palette — exactly 4 colours, built from the logo:
+     #14313C  deep slate      body text, header, nav, footer, stat blocks
+     #25DAAB  rescue mint     heading rules and accent borders (logo colour)
+     #0C7A64  deep teal       links, buttons, input borders, focus states
+     #EFF5F2  pale mint grey  page background, and text on dark surfaces
 
-   Type (2 families):
-     Bitter       — headings (slab serif, warm and sturdy)
+   Type — 2 families:
+     Bitter        — headings (slab serif, warm and sturdy)
      Source Sans 3 — body copy, forms, navigation
    ============================================================ */
 
@@ -17,11 +17,10 @@
 /* ---------- 1. Design tokens ---------- */
 
 :root {
-    --ink:    #14313C;
-    --mint:   #25DAAB;
-    --teal:   #0C7A64;
-    --paper:  #EFF5F2;
-    --white:  #FFFFFF;
+    --ink:   #14313C;
+    --mint:  #25DAAB;
+    --teal:  #0C7A64;
+    --paper: #EFF5F2;
 
     --font-heading: "Bitter", Georgia, "Times New Roman", serif;
     --font-body:    "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
@@ -51,7 +50,7 @@ h1,
 h2 {
     font-family: var(--font-heading);
     line-height: 1.25;
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.75rem;
 }
 
 h1 {
@@ -101,20 +100,17 @@ img {
 
 header {
     background-color: var(--ink);
-    color: var(--white);
+    color: var(--paper);
     padding: var(--space-l) var(--space) var(--space);
     text-align: center;
 }
 
 header img {
     margin: 0 auto var(--space);
-    background-color: var(--white);
-    padding: 0.5rem;
-    border-radius: 6px;
 }
 
 header h1 {
-    color: var(--white);
+    color: var(--paper);
 }
 
 /* Tagline under the page title */
@@ -130,7 +126,7 @@ header p {
 
 nav {
     background-color: var(--ink);
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid var(--teal);
 }
 
 nav ul {
@@ -142,13 +138,13 @@ nav ul {
 }
 
 nav li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid var(--teal);
 }
 
 nav a {
     display: block;
     padding: 0.85rem var(--space);
-    color: var(--white);
+    color: var(--paper);
     text-decoration: none;
     font-weight: 600;
 }
@@ -166,11 +162,10 @@ main {
     margin: 0 auto;
 }
 
+/* Sections are separated by generous space and the mint heading
+   rule rather than by a background colour. */
 section {
-    background-color: var(--white);
-    padding: 1.5rem var(--space);
-    margin-bottom: 1.5rem;
-    border-radius: 4px;
+    margin-bottom: 2.75rem;
 }
 
 main ul,
@@ -197,7 +192,7 @@ main li {
 
 .stats li {
     background-color: var(--ink);
-    color: var(--white);
+    color: var(--paper);
     padding: var(--space);
     border-left: 5px solid var(--mint);
     font-family: var(--font-heading);
@@ -220,9 +215,8 @@ main li {
 
 .help li,
 .roles li {
-    background-color: var(--paper);
     border-left: 4px solid var(--mint);
-    padding: 0.75rem var(--space);
+    padding: 0.4rem var(--space);
     margin: 0;
 }
 
@@ -237,7 +231,7 @@ figure {
 figcaption {
     padding: 0.75rem;
     background-color: var(--ink);
-    color: var(--white);
+    color: var(--paper);
     font-size: 0.95rem;
     line-height: 1.5;
 }
@@ -276,7 +270,7 @@ label {
 }
 
 /* Labels are already block-level, so the line breaks in the
-   markup would add a second, redundant gap. */
+   markup would otherwise add a second, redundant gap. */
 form br {
     display: none;
 }
@@ -290,17 +284,17 @@ select,
 textarea {
     width: 100%;
     padding: 0.6rem;
-    border: 1px solid #8FA5A2;
+    border: 2px solid var(--teal);
     border-radius: 3px;
     font-family: var(--font-body);
     font-size: 1rem;
-    background-color: var(--white);
+    background-color: var(--paper);
     color: var(--ink);
 }
 
 button {
     background-color: var(--teal);
-    color: var(--white);
+    color: var(--paper);
     border: none;
     border-radius: 3px;
     padding: 0.8rem 1.5rem;
@@ -320,7 +314,7 @@ button:hover {
 
 footer {
     background-color: var(--ink);
-    color: var(--white);
+    color: var(--paper);
     padding: var(--space-l) var(--space);
     text-align: center;
     border-top: 4px solid var(--mint);
@@ -423,10 +417,6 @@ footer p {
     .help li,
     .roles li {
         flex: 1 1 45%;
-    }
-
-    section {
-        padding: var(--space-l);
     }
 
     button {
