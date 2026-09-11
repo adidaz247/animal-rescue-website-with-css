@@ -1,0 +1,435 @@
+/* ============================================================
+   Twin Cities Animal Rescue
+   styles.css  —  mobile-first stylesheet
+   ------------------------------------------------------------
+   Palette (4 colours, taken from the logo):
+     #14313C  deep slate      headings, body text, header band
+     #25DAAB  rescue mint     accent rules and highlights (logo colour)
+     #0C7A64  deep teal       links, buttons, focus states
+     #EFF5F2  pale mint grey  page background
+
+   Type (2 families):
+     Bitter       — headings (slab serif, warm and sturdy)
+     Source Sans 3 — body copy, forms, navigation
+   ============================================================ */
+
+
+/* ---------- 1. Design tokens ---------- */
+
+:root {
+    --ink:    #14313C;
+    --mint:   #25DAAB;
+    --teal:   #0C7A64;
+    --paper:  #EFF5F2;
+    --white:  #FFFFFF;
+
+    --font-heading: "Bitter", Georgia, "Times New Roman", serif;
+    --font-body:    "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+
+    --space:   1rem;
+    --space-l: 2rem;
+    --measure: 68ch;   /* keeps line length comfortable for reading */
+}
+
+
+/* ---------- 2. Base (mobile first) ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+}
+
+h1,
+h2 {
+    font-family: var(--font-heading);
+    line-height: 1.25;
+    margin: 0 0 0.5rem;
+}
+
+h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    padding-bottom: 0.4rem;
+    border-bottom: 3px solid var(--mint);
+}
+
+p {
+    max-width: var(--measure);
+    margin: 0 0 var(--space);
+}
+
+a {
+    color: var(--teal);
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--teal);
+    outline-offset: 2px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ---------- 3. Header ---------- */
+
+header {
+    background-color: var(--ink);
+    color: var(--white);
+    padding: var(--space-l) var(--space) var(--space);
+    text-align: center;
+}
+
+header img {
+    margin: 0 auto var(--space);
+    background-color: var(--white);
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
+header h1 {
+    color: var(--white);
+}
+
+/* Tagline under the page title */
+header p {
+    max-width: var(--measure);
+    margin: 0 auto;
+    color: var(--mint);
+    font-size: 1.05rem;
+}
+
+
+/* ---------- 4. Navigation (Flexbox) ---------- */
+
+nav {
+    background-color: var(--ink);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;   /* stacked on small screens */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+nav a {
+    display: block;
+    padding: 0.85rem var(--space);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    background-color: var(--teal);
+}
+
+
+/* ---------- 5. Main content ---------- */
+
+main {
+    padding: var(--space-l) var(--space);
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+section {
+    background-color: var(--white);
+    padding: 1.5rem var(--space);
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+}
+
+main ul,
+main ol {
+    max-width: var(--measure);
+    padding-left: 1.25rem;
+}
+
+main li {
+    margin-bottom: 0.4rem;
+}
+
+
+/* ---------- 6. Impact statistics (Flexbox) ---------- */
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+    list-style: none;
+    padding: 0;
+    max-width: none;
+}
+
+.stats li {
+    background-color: var(--ink);
+    color: var(--white);
+    padding: var(--space);
+    border-left: 5px solid var(--mint);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+
+/* ---------- 7. "How you can help" and volunteer roles (Flexbox) ---------- */
+
+.help,
+.roles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    max-width: none;
+}
+
+.help li,
+.roles li {
+    background-color: var(--paper);
+    border-left: 4px solid var(--mint);
+    padding: 0.75rem var(--space);
+    margin: 0;
+}
+
+
+/* ---------- 8. Figure and media ---------- */
+
+figure {
+    margin: 0 0 var(--space);
+    max-width: 420px;
+}
+
+figcaption {
+    padding: 0.75rem;
+    background-color: var(--ink);
+    color: var(--white);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+audio {
+    width: 100%;
+    max-width: 420px;
+    margin-bottom: var(--space);
+}
+
+
+/* ---------- 9. Form ---------- */
+
+form {
+    max-width: 34rem;
+}
+
+fieldset {
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    padding: var(--space);
+    margin: 0 0 var(--space);
+}
+
+legend {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0 0.5rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+/* Labels are already block-level, so the line breaks in the
+   markup would add a second, redundant gap. */
+form br {
+    display: none;
+}
+
+form p {
+    margin-bottom: 1.25rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #8FA5A2;
+    border-radius: 3px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background-color: var(--white);
+    color: var(--ink);
+}
+
+button {
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 3px;
+    padding: 0.8rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: var(--ink);
+}
+
+
+/* ---------- 10. Footer ---------- */
+
+footer {
+    background-color: var(--ink);
+    color: var(--white);
+    padding: var(--space-l) var(--space);
+    text-align: center;
+    border-top: 4px solid var(--mint);
+}
+
+footer p {
+    max-width: var(--measure);
+    margin: 0 auto 0.25rem;
+    font-size: 0.95rem;
+}
+
+
+/* ============================================================
+   11. Media query — larger screens (700px and up)
+
+   700px matches the breakpoint already used by the <picture>
+   element on about.html, so the image swap and the layout
+   change happen at the same width.
+   ============================================================ */
+
+@media screen and (min-width: 700px) {
+
+    body {
+        font-size: 1.125rem;
+    }
+
+    h1 {
+        font-size: 2.6rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Header content sits left-aligned in a row */
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space) 0;
+        text-align: left;
+        padding: var(--space-l) 2.5rem;
+    }
+
+    header img {
+        margin: 0 var(--space-l) 0 0;   /* margin, not gap, for wider browser support */
+        flex-shrink: 0;
+    }
+
+    header h1 {
+        flex: 1 1 20ch;
+        margin: 0;
+    }
+
+    /* Tagline takes its own full-width row beneath the title */
+    header p {
+        flex-basis: 100%;
+        margin: 0;
+    }
+
+    /* Navigation becomes a single horizontal row */
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0 var(--space);
+    }
+
+    nav li {
+        border-bottom: none;
+    }
+
+    nav a {
+        padding: 1rem 1.25rem;
+        border-bottom: 4px solid transparent;
+    }
+
+    nav a:hover {
+        background-color: transparent;
+        border-bottom-color: var(--mint);
+    }
+
+    /* Statistics sit side by side */
+    .stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .stats li {
+        flex: 1 1 200px;
+    }
+
+    /* Help and role lists move to two columns */
+    .help,
+    .roles {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .help li,
+    .roles li {
+        flex: 1 1 45%;
+    }
+
+    section {
+        padding: var(--space-l);
+    }
+
+    button {
+        width: auto;
+    }
+}
